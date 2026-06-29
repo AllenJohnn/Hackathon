@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import CitizenForm from './pages/CitizenForm';
 import AdminDashboard from './pages/AdminDashboard';
 import ResponderPortal from './pages/ResponderPortal';
+import Home from './pages/Home';
 
 // PROTECTED ROUTE FILTER GATEWAY
 const ProtectedRoute = ({ children, allowedRoles }) => {
@@ -45,6 +46,8 @@ function AppRoutes() {
           <ResponderPortal />
         </ProtectedRoute>
       } />
+
+    <Route path="/" element={<Home />} />
 
       {/* FALLBACK DIRECTIVE */}
       <Route path="*" element={

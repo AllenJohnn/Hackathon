@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const sequelize = require('./config/db');
 
 const User = require('./models/User');
@@ -11,6 +12,7 @@ const requestRoutes = require('./routes/requestRoutes');
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const adminRoutes = require('./routes/adminRoutes');
 app.use('/api/admin', adminRoutes);
@@ -26,7 +28,7 @@ app.get('/api/health', (req, res) => {
   res.json({ status: "online", message: "ResQNet operational mesh running cleanly." });
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 sequelize.authenticate()
   .then(() => {

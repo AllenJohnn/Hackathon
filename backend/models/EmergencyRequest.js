@@ -9,6 +9,7 @@ const EmergencyRequest = sequelize.define('EmergencyRequest', {
   latitude: { type: DataTypes.DECIMAL(10, 8), allowNull: false },
   longitude: { type: DataTypes.DECIMAL(11, 8), allowNull: false },
   landmark: { type: DataTypes.STRING, allowNull: true },
+  image_path: { type: DataTypes.STRING, allowNull: true },
   status: { type: DataTypes.ENUM('Submitted', 'Under Analysis', 'Verified', 'Assigned', 'Completed'), defaultValue: 'Submitted' }
 }, {
   tableName: 'emergency_requests',
