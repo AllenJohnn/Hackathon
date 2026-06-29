@@ -1,0 +1,10 @@
+# Block Node dependency caches
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Block localized environment credentials (never share API keys!)
+.env
+
+# Block the local SQLite database file (so your testing data doesn't clobber your team's)
+backend/resqnet.sqlite
