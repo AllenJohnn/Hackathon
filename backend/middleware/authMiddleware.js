@@ -13,7 +13,6 @@ const protect = (roles = []) => {
       const decoded = jwt.verify(token, JWT_SECRET);
       req.user = decoded;
 
-      // Role check validation gate
       if (roles.length && !roles.includes(decoded.role)) {
         return res.status(403).json({ message: 'Access forbidden: Insufficient operational clearance.' });
       }

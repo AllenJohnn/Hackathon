@@ -21,6 +21,7 @@
     "multer": "^2.2.0",
     "mysql2": "^3.22.5",
     "sequelize": "^6.37.8",
+    "socket.io": "^4.8.3",
     "sqlite3": "^6.0.1"
   },
   "overrides": {

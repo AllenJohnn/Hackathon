@@ -7,7 +7,9 @@ const EmergencyAnalysis = sequelize.define('EmergencyAnalysis', {
   severity: { type: DataTypes.ENUM('High', 'Medium', 'Low'), allowNull: false },
   confidence: { type: DataTypes.INTEGER, allowNull: false },
   reason: { type: DataTypes.TEXT, allowNull: false },
-  requires_human_review: { type: DataTypes.BOOLEAN, defaultValue: false }
+  requires_human_review: { type: DataTypes.BOOLEAN, defaultValue: false },
+  translated_description: { type: DataTypes.TEXT, allowNull: true },
+  image_tags: { type: DataTypes.TEXT, allowNull: true }
 }, {
   tableName: 'emergency_analysis',
   timestamps: true,

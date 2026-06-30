@@ -6,7 +6,6 @@ const fs = require('fs');
 const requestController = require('../controllers/requestController');
 const { protect } = require('../middleware/authMiddleware');
 
-// Ensure uploads folder exists
 const uploadsDir = path.join(__dirname, '../uploads');
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
@@ -23,8 +22,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// Citizens push requests; Admins, Responders and Citizens can fetch requests (with scoping)
 router.post('/', protect(['Citizen']), upload.single('image'), requestController.submitRequest);
 router.get('/', protect(['Admin', 'Responder', 'Citizen']), requestController.getAllRequests);
+
+router.get('/shelters', protect(['Admin', 'Responder', 'Citizen']), requestController.getShelters);
+router.get('/:id/logs', protect(['Admin', 'Responder', 'Citizen']), requestController.getAuditLogs);
 
 module.exports = router;
